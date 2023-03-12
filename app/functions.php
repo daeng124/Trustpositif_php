@@ -53,14 +53,3 @@ function cekSSL()
     $hari_exp = ceil($selisih / 60 / 60 / 24);
     echo $hari_exp . " Hari lagi Expired";
 }
-
-
-function abc()
-{
-    $query = mysqli_query($koneksi, "SELECT * FROM tb_domains ORDER BY seq DESC");
-    $no = 1;
-    foreach ($dom as $do) {
-        echo $do['domain_name'];
-        echo "<br>";
-    }
-}
