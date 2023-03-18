@@ -41,7 +41,7 @@ if (isset($_POST['domain'])) {
   $json_array = json_decode($response);
 
   foreach ($json_array->values as $key => $value) {
-
+    // asdfasdf
     $query = "INSERT INTO tb_domains (
                     domain_name,
                     domain_is_blocked,
