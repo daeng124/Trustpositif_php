@@ -82,9 +82,11 @@ if ($username == '' || $password == '') {
 
             // echo "Login dengan {$email}";
             $_SESSION['user'] = $email;
-            $_SESSION['level'] = "operator";
+
             header('Location:../app');
         }
+    } else {
+        header('Location: ../index.php');
     }
     curl_close($curl);
 }

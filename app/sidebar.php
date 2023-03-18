@@ -23,11 +23,9 @@
 
     <!-- Sidebar Menu -->
     <?php
-    if ($_SESSION['level'] == 'superadmin') {
-        include('menu/superadmin.php');
-    } else if {
-        include('menu/operator.php');
-    }
-    
+
+    include('menu/operator.php');
+
+
     ?>
 </div>
