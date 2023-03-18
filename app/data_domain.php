@@ -41,8 +41,8 @@ if (isset($_POST['domain'])) {
   $json_array = json_decode($response);
 
   foreach ($json_array->values as $key => $value) {
-    if ($value->Domain !== "") {
-      $query = "INSERT INTO tb_domains (
+
+    $query = "INSERT INTO tb_domains (
                     domain_name,
                     domain_is_blocked,
                     domain_add_dt )
@@ -51,10 +51,7 @@ if (isset($_POST['domain'])) {
                     '$value->Status',
                     NOW())";
 
-      mysqli_query($koneksi, $query);
-    } else {
-      return false;
-    }
+    mysqli_query($koneksi, $query);
   }
 }
 
@@ -100,7 +97,21 @@ if (isset($_POST['domain'])) {
                       ?>
                     </td>
                     <td>
-
+                      <?php
+                      if ($domain['ssl_exp'] == null) {
+                        echo "Belum di Check";
+                      } else {
+                        $tgl_exp = $domain['ssl_exp'];
+                        $tanggal_hari_ini = date('Y-m-d');
+                        //selisih tanggal 
+                        $tgl_exp2 = strtotime($tgl_exp);
+                        $tgl_h = strtotime($tanggal_hari_ini);
+                        $selisih = $tgl_exp2 - $tgl_h;
+                        $hari_exp = ceil($selisih / 60 / 60 / 24);
+                        echo $domain['ssl_exp'] . " ";
+                        echo " ( " . $hari_exp . " Hari lagi )";
+                      }
+                      ?>
                     </td>
                     <td></td>
 
@@ -130,7 +141,7 @@ if (isset($_POST['domain'])) {
           <div class="card-body">
             <form action="" method="post">
               <div class="form-floating h-100">
-                <textarea name="domain" class="form-control" placeholder="Masukkan Domain disini!" id="floatingTextarea2" style="height: 200px"></textarea><br>
+                <textarea name="domain" class="form-control" placeholder="Masukkan Domain disini!" id="floatingTextarea2" style="height: 200px" required></textarea><br>
                 <button type="submit" class="btn btn-primary">Check Domain</button>
               </div>
             </form>

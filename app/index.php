@@ -46,7 +46,7 @@ if (!$_SESSION['nama']) {
         } else if ($_GET['page'] == 'data-domain-Terblokir') {
           include('domain_terblokir.php');
         } else if ($_GET['page'] == 'cek-ssl') {
-          include('testSSL.php');
+          include('ssl_checker.php');
         }
       } else {
         include('dashboard.php');
