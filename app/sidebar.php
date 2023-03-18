@@ -5,7 +5,7 @@
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block"><?php echo $_SESSION['nama'] . ' | ' . $_SESSION['level']; ?></a>
+            <a href="#" class="d-block"><?php echo $_SESSION['user'] . ' | ' . $_SESSION['level']; ?></a>
         </div>
     </div>
 
@@ -25,8 +25,9 @@
     <?php
     if ($_SESSION['level'] == 'superadmin') {
         include('menu/superadmin.php');
-    } else {
+    } else if {
         include('menu/operator.php');
     }
+    
     ?>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php session_start();
-if (!$_SESSION['nama']) {
+if (!$_SESSION['user']) {
   header('Location: ../index.php?page=session-expired');
 }
 ?>
