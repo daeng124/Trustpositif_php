@@ -15,6 +15,7 @@
                                     <th>No</th>
                                     <th>Domain Name</th>
                                     <th>Status</th>
+                                    <th>SSL Certificate</th>
                                     <th>Action</th>
 
                                 </tr>
@@ -36,7 +37,24 @@
                                             }
                                             ?>
                                         </td>
-                                        <td></td>
+                                        <td class="text-center">
+                                            <?php
+                                            if ($domain['ssl_exp'] == null) {
+                                                echo "Belum di Check";
+                                            } else {
+                                                $tgl_exp = $domain['ssl_exp'];
+                                                $tanggal_hari_ini = date('Y-m-d');
+                                                //selisih tanggal 
+                                                $tgl_exp2 = strtotime($tgl_exp);
+                                                $tgl_h = strtotime($tanggal_hari_ini);
+                                                $selisih = $tgl_exp2 - $tgl_h;
+                                                $hari_exp = ceil($selisih / 60 / 60 / 24);
+                                                echo $domain['ssl_exp'] . " ";
+                                                echo " ( " . $hari_exp . " Hari lagi )";
+                                            }
+                                            ?>
+                                        </td>
+                                        <td><a onclick="hapus_data(<?= $domain['seq']; ?>)" class="btn btn-sm btn-danger">Hapus</a></td>
                                     </tr>
                                 <?php endwhile; ?>
                             </tbody>
@@ -56,3 +74,24 @@
     </div>
 </section>
 <!-- /.content -->
+
+<script>
+    function hapus_data(data_id) {
+        // window.location = ("olah_data/hapus_data.php?seq=" + data_id)
+        Swal.fire({
+            title: 'Anda Yakin ingin Mengahapus?',
+            // showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Hapus',
+            // denyButtonText: `Don't save`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                window.location = ("olah_data/hapus_data.php?seq=" + data_id)
+            }
+            // else if (result.isDenied) {
+            //   Swal.fire('Changes are not saved', '', 'info')
+            // }
+        })
+    }
+</script>

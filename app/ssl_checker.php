@@ -49,7 +49,7 @@
                                             ?>
                                         </td>
                                         <td width="10%">
-                                            <a href="cekssl.php?seq=<?= $domain['seq']; ?>">Cek SSL</a>
+                                            <a href="cekssl.php?seq=<?= $domain['seq']; ?>" class="btn btn-block btn-secondary btn-sm">Cek SSL</a>
                                         </td>
                                     </tr>
                                 <?php endwhile; ?>

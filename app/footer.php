@@ -1,8 +1,8 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; <?php echo date('Y'); ?> | Pulidomain.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
+        <b>Version</b> 1.0.0
     </div>
 </footer>
 
@@ -27,7 +27,7 @@
 <!-- ChartJS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
+<!-- <script src="plugins/sparklines/sparkline.js"></script> -->
 <!-- JQVMap -->
 <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
@@ -44,10 +44,12 @@
 <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
+<!-- SweetAlert2 -->
+<script src="plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<!-- <script src="dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
+<!-- <script src="dist/js/pages/dashboard.js"></script> -->
 
 <!-- DataTables  & Plugins -->
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>
